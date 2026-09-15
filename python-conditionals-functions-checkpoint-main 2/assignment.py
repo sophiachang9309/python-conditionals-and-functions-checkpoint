@@ -954,9 +954,9 @@ ticket_type(65)
 # find_highest(8, 9, 30)
 
 def find_highest(a,b,c):
-    if a > b and a > c:
+    if a >= b and a >= c:
         print(a)
-    elif b > c and b > a:
+    elif b >= c and b >= a:
         print(b)
     else:
         print(c)
@@ -981,9 +981,9 @@ find_highest(8, 9, 30)
 # Test at least THREE times.
 
 def find_lowest(a,b,c):
-    if a < b and a < c:
+    if a <= b and a <= c:
         print(a)
-    elif b < a and b < c:
+    elif b <= a and b <= c:
         print(b)
     else:
         print(c)
@@ -1146,7 +1146,13 @@ def larger_number(a,b):
     if a > b:
         return a
     elif a == b:
-        return 
+        return a
+    else:
+        return b
+    
+
+bigger = larger_number(15,40)
+print(bigger)
 
 # TASK 43:
 # Create a function named:
@@ -1169,6 +1175,16 @@ def larger_number(a,b):
 #
 # Print highest_result.
 
+def highest_of_three(a,b,c):
+    if a >= b and a >= c:
+        return(a)
+    elif b >= c and b >= a:
+        return(b)
+    else:
+        return(c)
+
+highest_result = highest_of_three(18,42,27)
+print(highest_result)
 
 # TASK 44:
 # Create a function named:
@@ -1185,6 +1201,17 @@ def larger_number(a,b):
 #
 # Test it at least THREE times.
 
+def lowest_of_three(a,b,c):
+    if a <= b and a <= c:
+        return(a)
+    elif b <= a and b <= c:
+        return(b)
+    else:
+        return(c)
+
+print(lowest_of_three(3,3,4))
+print(lowest_of_three(3,4,4))
+print(lowest_of_three(4,3,9))
 
 # TASK 45:
 # Create a function named:
@@ -1206,6 +1233,17 @@ def larger_number(a,b):
 # middle_of_three(50, 5, 25)
 # middle_of_three(8, 7, 9)
 
+def middle_of_three(a,b,c):
+    if (a > b and b > c) or (c > b and b > a):
+        return(b)
+    elif (b > a and a > c) or (c > a and a > b):
+        return(a)
+    else:
+        return(c)
+
+print(middle_of_three(10, 30, 20))
+print(middle_of_three(50, 5, 25))
+print(middle_of_three(8, 7, 9))
 
 # ============================================================
 # SECTION 9 — RETURN + REUSE
@@ -1246,6 +1284,31 @@ def larger_number(a,b):
 # IMPORTANT:
 # Do NOT repeat the highest/lowest logic outside the functions.
 
+def get_highest(a,b,c):
+    if a >= b and a >= c:
+        return a
+    elif b >= a and b >= c:
+        return b
+    else:
+        return c
+
+def get_lowest(a,b,c):
+    if a <= b and a <= c:
+        return(a)
+    elif b <= a and b <= c:
+        return(b)
+    else:
+        return(c)
+
+a = 30
+b = 10
+c = 20
+
+highest = get_highest(a,b,c)
+lowest = get_lowest(a,b,c)
+
+difference = highest - lowest
+print(difference)
 
 # TASK 47:
 # Create:
@@ -1266,6 +1329,36 @@ def larger_number(a,b):
 #
 # or:
 # Small spread
+
+def get_highest(a,b,c):
+    if a >= b and a >= c:
+        return a
+    elif b >= a and b >= c:
+        return b
+    else:
+        return c
+
+def get_lowest(a,b,c):
+    if a <= b and a <= c:
+        return(a)
+    elif b <= a and b <= c:
+        return(b)
+    else:
+        return(c)
+
+a = 9
+b = 4
+c = 15
+
+highest = get_highest(a,b,c)
+lowest = get_lowest(a,b,c)
+
+difference = highest - lowest
+
+if difference > 10:
+    print("Large spread")
+else:
+    print("Small spread")
 
 
 # TASK 48:
@@ -1294,6 +1387,19 @@ def larger_number(a,b):
 # THINK:
 # How can one function call feed into another?
 
+a = 12
+b = 50
+c = 31
+def best_of_two(a,b):
+    if a > b:
+        return a
+    else:
+        return b
+
+high = best_of_two(a, b)
+highest = best_of_two(high, c)
+print(highest)
+
 
 # TASK 49:
 # Create a function named:
@@ -1314,6 +1420,19 @@ def larger_number(a,b):
 #
 # Print lowest.
 
+a = 22
+b = 5
+c = 17
+
+def worst_of_two(a,b):
+    if a > b:
+        return b
+    else:
+        return a
+
+low = worst_of_two(a,b)
+lowest = worst_of_two(low, c)
+print(lowest)
 
 # ============================================================
 # SECTION 10 — LOGIC CHALLENGES
@@ -1336,6 +1455,14 @@ def larger_number(a,b):
 #
 # Do NOT calculate the middle value separately first.
 
+a = 12
+b = 7
+c = 19
+
+if (c < b and b < a) or (a < b and b < c):
+    print(b, " is middle")
+else:
+    print(b, " is not middle")
 
 # TASK 51:
 # Create:
@@ -1352,6 +1479,31 @@ def larger_number(a,b):
 # or:
 # Highest is unique
 
+a = 25
+b = 25
+c = 10
+
+if a > b and a > c:
+    if a == b:
+        print("Highest is tied")
+    elif a == c:
+        print("Highest is tied")
+    else:
+        print("Highest is unique")
+elif b > a and b > c:
+    if b == a:
+        print("Highest is tied")
+    elif b == c:
+        print("Highest is tied")
+    else:
+        print("Highest is unique")
+elif c > a and c > b:
+    if c == b:
+        print("Highest is tied")
+    if c == a:
+        print("Highest is tied")
+    else:
+        print("Highest is unique")
 
 # TASK 52:
 # Create:
@@ -1368,6 +1520,16 @@ def larger_number(a,b):
 #
 # Print ONE result.
 
+a = 3
+b = 8
+c = 5
+
+if (a > b and a > c) and (b > c):
+    print("Strictly decreasing")
+elif (c > b and c > a) and (b > a):
+    print("Strictly increasing")
+else:
+    print("Neither")
 
 # TASK 53:
 # Create:
@@ -1389,6 +1551,15 @@ def larger_number(a,b):
 # Non-decreasing
 # OR
 # Not non-decreasing
+
+a = 5
+b = 5
+c = 10
+
+if a <= b and b <= c:
+    print("Non-decreasing")
+else:
+    print("Not non-decreasing")
 
 
 # TASK 54:
@@ -1414,6 +1585,15 @@ def larger_number(a,b):
 #
 # Read this one carefully.
 
+age = 17
+has_permission = True
+has_ticket = False
+
+if (age >=18) or (age < 18 and has_permission == True and has_ticket == True):
+    print("Entry allowed")
+else:
+    print("Entry denied")
+
 
 # TASK 55:
 # Create:
@@ -1437,6 +1617,15 @@ def larger_number(a,b):
 #
 # Only ONE message should print.
 
+score = 88
+attendance = 92
+
+if score >= 90 and attendance >= 90:
+    print("Honors")
+elif score >=70 and attendance >=75:
+    print("Pass")
+else:
+    print("Fail")
 
 # ============================================================
 # SECTION 11 — DEBUGGING CHALLENGES
@@ -1456,6 +1645,12 @@ def larger_number(a,b):
 # if score >= 90:
 #     print("Excellent")
 
+score = 95
+
+if score >= 90:
+    print("Excellent")
+elif score >= 70:
+    print("Passing")
 
 # TASK 57:
 # The programmer wants 18 to count as Adult.
@@ -1469,6 +1664,12 @@ def larger_number(a,b):
 # else:
 #     print("Minor")
 
+age = 18
+
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")
 
 # TASK 58:
 # The programmer wants numbers from 10 through 20,
@@ -1485,6 +1686,12 @@ def larger_number(a,b):
 # else:
 #     print("Invalid")
 
+number = 20
+
+if number >= 10 and number <= 20:
+    print("Valid")
+else:
+    print("Invalid")
 
 # TASK 59:
 # The programmer wants the function to RETURN the answer.
@@ -1498,6 +1705,12 @@ def larger_number(a,b):
 # result = add_numbers(4, 6)
 # print(result)
 
+def add_numbers(a, b):
+    total = a + b
+    return(total)
+
+result = add_numbers(4, 6)
+print(result)
 
 # TASK 60:
 # Fix the function so the variable result works outside
@@ -1509,6 +1722,12 @@ def larger_number(a,b):
 # result = subtract(20, 8)
 # print(result)
 
+def subtract(a, b):
+    answer = a - b
+    return answer
+
+result = subtract(20, 8)
+print(result)
 
 # ============================================================
 # FINAL BOSS 1 — THREE NUMBER ANALYZER
@@ -1556,6 +1775,24 @@ def larger_number(a,b):
 # analyze_three_numbers(5, 5, 9)
 # analyze_three_numbers(-5, 0, -12)
 
+def analyze_three_numbers(a,b,c):
+        highest= 0
+        if a >= b and a >= c:
+            highest = a
+        elif b >= 
+
+        if c == a and a == b and b == c:
+            print("All equal")
+        elif c == a or a == b or c==b:
+            print("Exactly two equal")
+        else:
+            print("All different")
+
+
+analyze_three_numbers(8, 3, 15)
+analyze_three_numbers(20, 20, 20)
+analyze_three_numbers(5, 5, 9)
+analyze_three_numbers(-5, 0, -12)
 
 # ============================================================
 # FINAL BOSS 2 — NUMBER RANKING
