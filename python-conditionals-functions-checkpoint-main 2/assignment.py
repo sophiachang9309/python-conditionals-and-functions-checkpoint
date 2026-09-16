@@ -1776,10 +1776,38 @@ print(result)
 # analyze_three_numbers(-5, 0, -12)
 
 def analyze_three_numbers(a,b,c):
-        highest= 0
+        
         if a >= b and a >= c:
             highest = a
-        elif b >= 
+            print("Highest: ", highest) 
+        elif b >= a and b >= c:
+            highest = b
+            print("Highest: ", highest)
+        else:
+            highest = c
+            print("Highest: ", highest) 
+
+        lowest = 0
+        if a <= b and a <= c:
+            lowest = a
+            print("Lowest: ", lowest) 
+        elif b <= a and b <= c:
+            lowest = b
+            print("Lowest: ", lowest)
+        else:
+            lowest = c
+            print("Lowest: ", lowest)
+
+        middle = 0
+        if (a <= b and b <= c) or (c <= b and b <= a):
+            middle = b
+            print("Middle: ", middle)
+        elif (b <= a and a <= c) or (c <= a and a <= b):
+            middle = a
+            print("Middle: ", middle)
+        else:
+            middle = c
+            print("Middle: ", middle)
 
         if c == a and a == b and b == c:
             print("All equal")
@@ -1827,6 +1855,34 @@ analyze_three_numbers(-5, 0, -12)
 #
 # Your program must still work if the order of inputs changes.
 
+user_num1 = int(input ("Please give me one whole number: "))
+user_num2 = int(input("Please give me another whole number: "))
+user_num3 = int(input("Please give me another whole number again: "))
+
+if user_num1 <= user_num2 and user_num2 <= user_num3:
+    print(user_num1)
+    print(user_num2)
+    print(user_num3)
+elif user_num2 <= user_num3 and user_num3 <= user_num1:
+    print(user_num2)
+    print(user_num3)
+    print(user_num1)
+elif user_num3 <= user_num2 and user_num2 <= user_num1:
+    print(user_num3)
+    print(user_num2)
+    print(user_num1)
+elif user_num1 <= user_num3 and user_num3 <= user_num2:
+    print(user_num1)
+    print(user_num3)
+    print(user_num2)
+elif user_num3 <= user_num1 and user_num1 <= user_num2:
+    print(user_num3)
+    print(user_num1)
+    print(user_num2)
+elif user_num2 <= user_num1 and user_num1 <= user_num3:
+    print(user_num2)
+    print(user_num1)
+    print(user_num3)
 
 # ============================================================
 # FINAL BOSS 3 — FUNCTION REUSE
@@ -1865,6 +1921,41 @@ analyze_three_numbers(-5, 0, -12)
 #
 # Do NOT use min(), max(), or sorting.
 
+first = int(input ("Please give me one whole number: "))
+second = int(input("Please give me another whole number: "))
+third = int(input("Please give me another whole number again: "))
+
+def get_highest(a,b,c):
+    if a >= b and a >= c:
+        return a
+    elif b >= a and b >= c:
+        return b
+    else:
+        return c
+
+def get_lowest(a,b,c):
+    if a <= b and a <= c:
+        return(a)
+    elif b <= a and b <= c:
+        return(b)
+    else:
+        return(c)
+
+def get_middle(a,b,c):
+    if (a <= b and b <= c) or (c <= b and b <= a):
+        return b
+    elif(a <= c and c <= b) or (b <= c and c <= a):
+        return c
+    else:
+        return a
+
+highest = get_highest(first, second, third)
+lowest = get_lowest(first, second, third)
+middle = get_middle(first, second, third)
+
+print("Highest: ", highest)
+print("Middle: ", middle)
+print("Lowest: ", lowest)
 
 # ============================================================
 # FINAL BOSS 4 — CONDITIONAL DECISION SYSTEM
@@ -1902,6 +1993,18 @@ analyze_three_numbers(-5, 0, -12)
 # The first person should still be accepted even though
 # the interview value is "fail".
 
+def admission_decision (grade, attendance, interview):
+    if grade >= 90 and attendance >= 90:
+        print("Accepted")
+    elif grade >= 80 and attendance >= 80 and interview == "pass":
+        print("Accepted")
+    else:
+        print("Not accepted")
+
+admission_decision(95, 95, "fail")
+admission_decision(85, 85, "pass")
+admission_decision(85, 85, "fail")
+admission_decision(75, 100, "pass")
 
 # ============================================================
 # FINAL BOSS 5 — THINK CAREFULLY
@@ -1934,6 +2037,33 @@ analyze_three_numbers(-5, 0, -12)
 # - Do NOT use sorting
 #
 # Your logic should still work if the variable values change.
+
+a = 15
+b = 8
+c = 15
+
+if (a >= b and a >= c):
+    highest = a
+    print("Highest: ", highest)
+    if a == b or a == c:
+        print("Tied highest")
+    else:
+        print("Unique highest")
+elif b >= a and b >= c:
+    highest = b
+    print("Highest: ", highest)
+    if b == c or b == a:
+        print("Tied highest")
+    else:
+        print("Unique highest")
+elif c >= a and c >= b:
+    highest = c
+    print("Highest: ", highest)
+    if c == a or c == b:
+        print("Tied highest")
+    else:
+        print("Unique highest")
+
 
 
 
@@ -1997,6 +2127,21 @@ analyze_three_numbers(-5, 0, -12)
 # CHALLENGE:
 # The same function must be able to convert in BOTH directions.
 
+def convert_temperature(temperature, scale):
+    if scale == "C":
+        Fahrenheit = temperature * 1.8 + 32
+        return Fahrenheit
+    elif scale == "F":
+        Celsius = (temperature - 32) / 1.8
+        return Celsius
+
+
+convert_temperature(0, "C")     
+convert_temperature(100, "C")    
+convert_temperature(32, "F")    
+convert_temperature(68, "F")    
+
+
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 67 — KELVIN CONVERTER
@@ -2035,6 +2180,20 @@ analyze_three_numbers(-5, 0, -12)
 # THINK:
 # One input can require TWO calculations before you return the answer.
 
+def to_kelvin(temperature, scale):
+    if scale == "C":
+        Kelvin = temperature + 273.15
+        return Kelvin
+    elif scale == "F":
+        Celsius = (temperature - 32) / 1.8
+        Kelvin = Celsius + 273.15
+        return Kelvin
+
+to_kelvin(0, "C")    
+to_kelvin(100, "C")   
+to_kelvin(32, "F")   
+to_kelvin(212, "F")   
+
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 68 — PARKING GARAGE
@@ -2069,6 +2228,19 @@ analyze_three_numbers(-5, 0, -12)
 # THINK:
 # Do not accidentally charge $3 for the first hour.
 
+def parking_cost (hours):
+    total_parking_cost = 5 + (hours-1) * 3
+    if total_parking_cost > 25:
+        total_parking_cost = 25
+        return total_parking_cost
+    else:
+        return total_parking_cost
+    
+parking_cost(1)  
+parking_cost(2)  
+parking_cost(5)
+parking_cost(9) 
+parking_cost(20)
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 69 — MOVIE TICKET TOTAL
@@ -2088,6 +2260,7 @@ analyze_three_numbers(-5, 0, -12)
 # Under 13: $8
 # Ages 13–64: $12
 # Age 65+: $7
+
 #
 # On weekends, add $3 to the ticket price.
 #
@@ -2104,6 +2277,32 @@ analyze_three_numbers(-5, 0, -12)
 # First determine the base ticket price.
 # Then decide whether something must be added.
 
+def movie_total (age, is_weekend):
+    if is_weekend == True:
+        if age < 13:
+            price = 8 + 3
+            return price
+        elif age >= 13 and age <= 64:
+            price = 12 + 3
+            return price
+        else:
+            price = 7 + 3
+            return price
+    else:
+        if age < 13:
+            price = 8
+            return price
+        elif age >= 13 and age <= 64:
+            price = 12
+            return price
+        else:
+            price = 7
+            return price
+        
+movie_total(10, False) 
+movie_total(10, True)  
+movie_total(30, False) 
+movie_total(70, True)
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 70 — ELECTRIC BILL
@@ -2138,6 +2337,18 @@ analyze_three_numbers(-5, 0, -12)
 # IMPORTANT:
 # For 120 units, only 20 units should be charged at $0.20.
 
+def electric_bill(usage):
+    if usage > 100:
+        total_bill = (usage - 100)*0.20 + (100 * 0.10)
+        return total_bill
+    else:
+        total_bill = 0.10 * usage
+        return total_bill
+    
+electric_bill(50) 
+electric_bill(100)
+electric_bill(120) 
+electric_bill(200)
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 71 — LEAP YEAR
@@ -2174,6 +2385,16 @@ analyze_three_numbers(-5, 0, -12)
 # THINK:
 # A year divisible by 100 is NOT automatically a leap year.
 
+def is_leap_year(year):
+    if (year % 400 == 0) or ( year % 4 == 0 and year % 100 != 0 ):
+        return True
+    else:
+        return False
+
+is_leap_year(2024)
+is_leap_year(2025) 
+is_leap_year(1900) 
+is_leap_year(2000)  
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 72 — TRIANGLE VALIDITY
@@ -2209,6 +2430,17 @@ analyze_three_numbers(-5, 0, -12)
 #
 # Notice that 2 + 3 = 5 is NOT enough.
 # It must be GREATER THAN.
+
+def valid_triangle(a,b,c):
+    if (a + b > c) and (a + c > b) and (b + c > a):
+        return True
+    else:
+        return False
+
+valid_triangle(3, 4, 5)  
+valid_triangle(5, 5, 5)   
+valid_triangle(1, 2, 10)
+valid_triangle(2, 3, 5)
 
 
 # ------------------------------------------------------------
@@ -2253,6 +2485,21 @@ analyze_three_numbers(-5, 0, -12)
 # THINK:
 # Check whether the triangle is valid BEFORE classifying it.
 
+def triangle_type(a,b,c):
+    if (a + b > c) and (a + c > b) and (b + c > a):
+        if a == b and b == c and a == c:
+            return "equilateral"
+        elif a == b or b == c or a == c:
+            return "isosceles"
+        else:
+            return "scalene"
+    else:
+        return "invalid"
+
+triangle_type(3, 3, 3)   
+triangle_type(5, 5, 8)  
+triangle_type(3, 4, 5)  
+triangle_type(1, 2, 10) 
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 74 — ROCK PAPER SCISSORS
@@ -2308,6 +2555,18 @@ analyze_three_numbers(-5, 0, -12)
 # This is a logic problem.
 # There are several possible combinations.
 
+def rps_winner(player1, player2):
+    if player1 == player2:
+        return "tie"
+    elif (player1 == "rock" and player2 == "paper") or (player2 == "rock" and player1 == "scissors") or (player2 == "scissors" and player1 == "paper"):
+        return "player2"
+    elif (player2 == "rock" and player1 == "paper") or (player1 == "rock" and player2 == "scissors") or (player1 == "scissors" and player2 == "paper"):
+        return "player1"
+    
+rps_winner("rock", "scissors") 
+rps_winner("paper", "rock")     
+rps_winner("rock", "paper")    
+rps_winner("paper", "paper")
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 75 — CLOSEST TO 100
@@ -2341,6 +2600,27 @@ analyze_three_numbers(-5, 0, -12)
 # A number may be above OR below 100.
 # You will need to determine each number's distance from 100.
 
+def closest_to_100(a,b):
+    dif1 = 100 - a
+    dif2 = 100 - b
+
+    if dif1 < 0:
+        dif1 = (-1 * dif1)
+
+    if dif2 <0:
+        dif2 = -1 * dif2
+
+    if dif1 >= 0 and dif2 >= 0:
+        if dif1 == dif2:
+            return -1
+        elif dif1 > dif2:
+            return b
+        elif dif2 > dif1:
+            return a
+
+closest_to_100(90, 80)   
+closest_to_100(105, 120)  
+closest_to_100(90, 110)
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 76 — DELIVERY FEE
@@ -2376,6 +2656,18 @@ analyze_three_numbers(-5, 0, -12)
 # THINK:
 # A large order does NOT always mean free delivery.
 
+def delivery_fee (order_total, distance):
+    if order_total >= 50 and distance <= 5:
+        return 0
+    elif distance <= 5:
+        return 5
+    else:
+        return 10
+
+delivery_fee(60, 3) 
+delivery_fee(30, 3)  
+delivery_fee(60, 8)  
+delivery_fee(30, 8)
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 77 — ATM WITHDRAWAL
@@ -2408,6 +2700,16 @@ analyze_three_numbers(-5, 0, -12)
 #
 # ALL conditions must be true.
 
+def can_withdraw(balance, amount):
+    if ((amount % 20) == 0) and amount >0 and amount <= balance:
+        return True
+    else:
+        return False
+
+can_withdraw(500, 100)  
+can_withdraw(500, 125)
+can_withdraw(50, 100) 
+can_withdraw(500, 0)
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 78 — RESTAURANT TIP
@@ -2447,6 +2749,13 @@ analyze_three_numbers(-5, 0, -12)
 # THINK:
 # RETURN only the TIP, not the final bill.
 
+def tip_amount(bill, service):
+    if service == "excellent":
+        amount = 
+    elif service == "good":
+        amount
+    elif service == "poor":
+        amount = 
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 79 — PHONE BATTERY WARNING
