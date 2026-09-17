@@ -50,7 +50,7 @@ number_one = 25
 number_two = 40
 
 if number_two > number_one:
-    print(number_two, " is greater")
+    print("number_two is greater")
 
 # TASK 2:
 # Create:
@@ -391,11 +391,11 @@ b = 7
 c = 19
 
 if a > b and a > c:
-    print (a, " is highest")
+    print ("a is highest")
 elif b > a and b > c:
-    print(b, " is highest")
+    print("b is highest")
 else:
-    print(c, " is highest")
+    print("c is highest")
 
 # TASK 17:
 # Create:
@@ -415,11 +415,11 @@ y = 13
 z = 28
 
 if x < y and x < z:
-    print(x, " is the lowest")
+    print("x is the lowest")
 elif (y < x and y < z):
-    print(y, " is the lowest")
+    print("y is the lowest")
 else:
-    print(z, " is the lowest")
+    print("z is the lowest")
 
 # TASK 18:
 # Create:
@@ -615,9 +615,9 @@ first_number = int(input("Please give me one whole number: "))
 second_number = int(input("Please give me another whole number: "))
 third_number = int(input("Please give me another whole number again: "))
 
-if (first_number < second_number and first_number < third_number):
+if (first_number <= second_number and first_number <= third_number):
     print(first_number, " is the lowest number")
-elif (second_number < first_number and second_number < third_number):
+elif (second_number <= first_number and second_number <= third_number):
     print(second_number, " is the lowest number")
 else:
     print(third_number, " is the lowest number")
@@ -637,9 +637,9 @@ value1 = int(input ("Please give me one whole number: "))
 value2 = int(input("Please give me another whole number: "))
 value3 = int(input("Please give me another whole number again: "))
 
-if value1 > value2 and value1 > value3:
+if value1 >= value2 and value1 >= value3:
     print(value1, " is the highest number")
-elif value2 > value1 and value2 > value3:
+elif value2 >= value1 and value2 >= value3:
     print(value2, " is the highest number")
 else:
     print(value3, " is the highest number")
@@ -1089,6 +1089,7 @@ def is_in_range(number, low, high):
     else:
         print("Out of range")
 
+is_in_range(50, 100, 1)
 
 # ============================================================
 # SECTION 8 — RETURN VALUES
@@ -1460,9 +1461,9 @@ b = 7
 c = 19
 
 if (c < b and b < a) or (a < b and b < c):
-    print(b, " is middle")
+    print("b is middle")
 else:
-    print(b, " is not middle")
+    print("b is not middle")
 
 # TASK 51:
 # Create:
@@ -1483,21 +1484,21 @@ a = 25
 b = 25
 c = 10
 
-if a > b and a > c:
+if a >= b and a >= c:
     if a == b:
         print("Highest is tied")
     elif a == c:
         print("Highest is tied")
     else:
         print("Highest is unique")
-elif b > a and b > c:
+elif b >= a and b >= c:
     if b == a:
         print("Highest is tied")
     elif b == c:
         print("Highest is tied")
     else:
         print("Highest is unique")
-elif c > a and c > b:
+elif c >= a and c >= b:
     if c == b:
         print("Highest is tied")
     if c == a:
@@ -2136,10 +2137,10 @@ def convert_temperature(temperature, scale):
         return Celsius
 
 
-convert_temperature(0, "C")     
-convert_temperature(100, "C")    
-convert_temperature(32, "F")    
-convert_temperature(68, "F")    
+print(convert_temperature(0, "C") )    
+print(convert_temperature(100, "C") )   
+print(convert_temperature(32, "F")   ) 
+print(convert_temperature(68, "F")    )
 
 
 
@@ -2189,10 +2190,10 @@ def to_kelvin(temperature, scale):
         Kelvin = Celsius + 273.15
         return Kelvin
 
-to_kelvin(0, "C")    
-to_kelvin(100, "C")   
-to_kelvin(32, "F")   
-to_kelvin(212, "F")   
+print(to_kelvin(0, "C")    )
+print(to_kelvin(100, "C")  ) 
+print(to_kelvin(32, "F")  ) 
+print(to_kelvin(212, "F")  )
 
 
 # ------------------------------------------------------------
@@ -2236,11 +2237,11 @@ def parking_cost (hours):
     else:
         return total_parking_cost
     
-parking_cost(1)  
-parking_cost(2)  
-parking_cost(5)
-parking_cost(9) 
-parking_cost(20)
+print(parking_cost(1)  )
+print(parking_cost(2)  )
+print(parking_cost(5))
+print(parking_cost(9) )
+print(parking_cost(20))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 69 — MOVIE TICKET TOTAL
@@ -2299,10 +2300,10 @@ def movie_total (age, is_weekend):
             price = 7
             return price
         
-movie_total(10, False) 
-movie_total(10, True)  
-movie_total(30, False) 
-movie_total(70, True)
+print(movie_total(10, False) )
+print(movie_total(10, True)  )
+print(movie_total(30, False) )
+print(movie_total(70, True))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 70 — ELECTRIC BILL
@@ -2345,10 +2346,10 @@ def electric_bill(usage):
         total_bill = 0.10 * usage
         return total_bill
     
-electric_bill(50) 
-electric_bill(100)
-electric_bill(120) 
-electric_bill(200)
+print(electric_bill(50) )
+print(electric_bill(100))
+print(electric_bill(120) )
+print(electric_bill(200))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 71 — LEAP YEAR
@@ -2391,10 +2392,10 @@ def is_leap_year(year):
     else:
         return False
 
-is_leap_year(2024)
-is_leap_year(2025) 
-is_leap_year(1900) 
-is_leap_year(2000)  
+print(is_leap_year(2024))
+print(is_leap_year(2025)) 
+print(is_leap_year(1900) )
+print(is_leap_year(2000)  )
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 72 — TRIANGLE VALIDITY
@@ -2437,10 +2438,10 @@ def valid_triangle(a,b,c):
     else:
         return False
 
-valid_triangle(3, 4, 5)  
-valid_triangle(5, 5, 5)   
-valid_triangle(1, 2, 10)
-valid_triangle(2, 3, 5)
+print(valid_triangle(3, 4, 5)  )
+print(valid_triangle(5, 5, 5)   )
+print(valid_triangle(1, 2, 10))
+print(valid_triangle(2, 3, 5))
 
 
 # ------------------------------------------------------------
@@ -2496,10 +2497,10 @@ def triangle_type(a,b,c):
     else:
         return "invalid"
 
-triangle_type(3, 3, 3)   
-triangle_type(5, 5, 8)  
-triangle_type(3, 4, 5)  
-triangle_type(1, 2, 10) 
+print(triangle_type(3, 3, 3)  ) 
+print(triangle_type(5, 5, 8)  )
+print(triangle_type(3, 4, 5)  )
+print(triangle_type(1, 2, 10) )
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 74 — ROCK PAPER SCISSORS
@@ -2563,10 +2564,10 @@ def rps_winner(player1, player2):
     elif (player2 == "rock" and player1 == "paper") or (player1 == "rock" and player2 == "scissors") or (player1 == "scissors" and player2 == "paper"):
         return "player1"
     
-rps_winner("rock", "scissors") 
-rps_winner("paper", "rock")     
-rps_winner("rock", "paper")    
-rps_winner("paper", "paper")
+print(rps_winner("rock", "scissors")) 
+print(rps_winner("paper", "rock")   )  
+print(rps_winner("rock", "paper")  )  
+print(rps_winner("paper", "paper"))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 75 — CLOSEST TO 100
@@ -2618,9 +2619,9 @@ def closest_to_100(a,b):
         elif dif2 > dif1:
             return a
 
-closest_to_100(90, 80)   
-closest_to_100(105, 120)  
-closest_to_100(90, 110)
+print(closest_to_100(90, 80)   )
+print(closest_to_100(105, 120)  )
+print(closest_to_100(90, 110))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 76 — DELIVERY FEE
@@ -2664,10 +2665,10 @@ def delivery_fee (order_total, distance):
     else:
         return 10
 
-delivery_fee(60, 3) 
-delivery_fee(30, 3)  
-delivery_fee(60, 8)  
-delivery_fee(30, 8)
+print(delivery_fee(60, 3) )
+print(delivery_fee(30, 3)  )
+print(delivery_fee(60, 8)  )
+print(delivery_fee(30, 8))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 77 — ATM WITHDRAWAL
@@ -2706,10 +2707,10 @@ def can_withdraw(balance, amount):
     else:
         return False
 
-can_withdraw(500, 100)  
-can_withdraw(500, 125)
-can_withdraw(50, 100) 
-can_withdraw(500, 0)
+print(can_withdraw(500, 100)  )
+print(can_withdraw(500, 125))
+print(can_withdraw(50, 100)) 
+print(can_withdraw(500, 0))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 78 — RESTAURANT TIP
@@ -2751,11 +2752,18 @@ can_withdraw(500, 0)
 
 def tip_amount(bill, service):
     if service == "excellent":
-        amount = 
+        amount = 0.25 * bill
     elif service == "good":
-        amount
+        amount = 0.18 * bill
     elif service == "poor":
-        amount = 
+        amount =  0.10 * bill
+
+    return amount
+
+print(tip_amount(100, "poor")  )   
+print(tip_amount(100, "good")   )
+print(tip_amount(100, "excellent") )
+print(tip_amount(80, "good"))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 79 — PHONE BATTERY WARNING
@@ -2794,6 +2802,20 @@ def tip_amount(bill, service):
 # THINK:
 # The order of the conditions matters.
 
+def battery_status (battery, is_charging):
+    if battery <= 5 and is_charging == False:
+        return "critical"
+    elif battery <= 20 and is_charging == False:
+        return "low"
+    elif is_charging == True:
+        return "charging"
+    else:
+        return "normal"
+
+print(battery_status(3, False)  )
+print(battery_status(15, False) )
+print(battery_status(3, True)    )
+print(battery_status(80, False)    )
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 80 — TAXI FARE
@@ -2825,6 +2847,16 @@ def tip_amount(bill, service):
 #
 # Build the final answer from the rules instead of
 # hard-coding different totals.
+
+def taxi_fare(miles, is_night):
+    base = 2 * miles + 4
+    if is_night == True:
+        base = base + 5
+    return base
+
+print(taxi_fare(0, False))
+print(taxi_fare(5, False) )
+print(taxi_fare(5, True))
 
 
 # ------------------------------------------------------------
@@ -2861,6 +2893,18 @@ def tip_amount(bill, service):
 # THINK:
 # The critical hit should happen AFTER defense is removed.
 
+def calculate_damage(attack,defense,critical):
+    damage = attack - defense
+    if damage < 0:
+        damage = 0
+    if critical == True:
+        damage = 2 * damage
+    return damage
+
+print(calculate_damage(20, 5, False)) 
+print(calculate_damage(20, 5, True)  )
+print(calculate_damage(5, 20, False) )
+print(calculate_damage(5, 20, True))
 
 # ------------------------------------------------------------
 # LEETCODE-STYLE TASK 82 — STORE COUPON
@@ -2899,6 +2943,22 @@ def tip_amount(bill, service):
 # THINK:
 # A 25% discount means the customer pays 75% of the price.
 
+def final_price(price, coupon):
+    if coupon == "none":
+        return price
+    elif coupon == "SAVE10":
+        discount = price * 0.10
+        price = price - discount
+        return price
+    elif coupon == "SAVE25":
+        discount = price * 0.25
+        price = price - discount
+        return price
+    
+print(final_price(100, "none")  ) 
+print(final_price(100, "SAVE10")  )
+print(final_price(100, "SAVE25")  )
+print(final_price(80, "SAVE25"))
 
 # ============================================================
 # GIT CHECK
